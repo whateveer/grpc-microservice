@@ -26,7 +26,7 @@ func (s *server) ProcessPayment(ctx context.Context, req *pb.PaymentRequest) (*p
 	message := "Paid"
 
 	// Generate PDF receipt
-	receiptPath, err := generateReceipt(transactionId, req.FullName, req.Email)
+	receiptPath, err := generateReceipt(transactionId, req.FullName)
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +43,7 @@ func (s *server) ProcessPayment(ctx context.Context, req *pb.PaymentRequest) (*p
 	}, nil
 }
 
-func generateReceipt(transactionID, fullName, email string) (string, error) {
+func generateReceipt(transactionID, fullName string) (string, error) {
 	pdf := gofpdf.New("P", "mm", "A4", "")
 	pdf.AddPage()
 	pdf.SetFont("Arial", "B", 16)
