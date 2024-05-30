@@ -13,6 +13,8 @@ message PaymentRequest {
     string expiryDate = 2;
     string cvv = 3;
     string customerName = 4;
+    string email = 5; // New field for email
+    string fullName = 6; // New field for full name
 }
 
 message PaymentResponse {
