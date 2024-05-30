@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package payment;
+
+option go_package = "grpc-microservice/cmd/grpc-microservice/payment";
+
+service PaymentService {
+    rpc ProcessPayment(PaymentRequest) returns (PaymentResponse);
+}
+
+message PaymentRequest {
+    string cardNumber = 1;
+    string expiryDate = 2;
+    string cvv = 3;
+    string customerName = 4;
+}
+
+message PaymentResponse {
+    string transactionId = 1;
+    string message = 2;
+}
