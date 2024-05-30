@@ -75,7 +75,7 @@ func sendReceiptByEmail(email, receiptPath string) error {
 	m.SetBody("text/html", "Thank you for your payment. Please find your receipt attached.")
 	m.Attach(receiptPath)
 
-	d := gomail.NewDialer("smtp.gmail.com", 587, "aitunderapp.notifications@gmail.com", "your-email-password")
+	d := gomail.NewDialer("smtp.gmail.com", 587, "aitunderapp.notifications@gmail.com", "hbgr gnxq enfr zmtn")
 
 	return d.DialAndSend(m)
 }
